@@ -14,11 +14,14 @@ def _settings_button() -> ui.UINode:
 
 def _help_modal() -> ui.UINode:
     return ui.Modal(
-        trigger=ui.Button("How do I set this up?", variant="ghost", size="sm"),
+        trigger=ui.Button("How do I connect Deel?", variant="ghost", size="sm"),
         title="Connecting Deel",
         children=[
             ui.Text(
-                "1. Sign in to your Deel account and navigate to API/Integration or OAuth settings.\n2. Choose your preferred authentication method (OAuth SSO, API Key / Personal Token, or Client Credentials / Service Account).\n3. Authorize or enter your credentials above and click Connect.",
+                "1. Sign in to your Deel account at app.letsdeel.com.\n"
+                "2. Navigate to Organization Settings > Integrations / Developer Center.\n"
+                "3. Under API Tokens, generate a dedicated REST API Bearer Token.\n"
+                "4. Paste your token above and click Connect Deel.",
                 variant="body"
             )
         ]
@@ -32,80 +35,41 @@ async def deel_sidebar(ctx, **kwargs) -> ui.UINode:
         align="stretch",
         children=[
             ui.Text("Deel", variant="heading"),
-            ui.Stack(
-                direction="v",
-                gap=1,
-                align="stretch",
-                children=[
-                    ui.Text("Manage your Deel connections and integrations.", variant="caption"),
-                ]
-            ),
+            ui.Text("Manage global workforce, contracts, people, payroll runs, time-off and invoices via Deel REST API v2.", variant="caption"),
             ui.Divider(),
-            ui.Stack(
-                direction="v",
-                gap=2,
-                align="stretch",
+            ui.Form(
+                submit_label="Connect Deel",
+                action=ui.Call("connect_deel"),
                 children=[
-                    ui.Button(
-                        "Sign in with Deel (OAuth / SSO)",
-                        variant="primary",
-                        size="sm",
-                        icon="login"
-                    ),
-                    ui.Divider(),
-                    ui.Text("Or connect via API Key or Service Account", variant="caption"),
-                    ui.Form(
-                        submit_label="Connect Deel",
-                        action=ui.Call("connect_deel"),
+                    ui.Stack(
+                        direction="v",
+                        gap=2,
+                        align="stretch",
                         children=[
-                            ui.Stack(
-                                direction="v",
-                                gap=2,
-                                align="stretch",
-                                children=[
-                                    ui.Stack(
-                                        direction="v",
-                                        gap=1,
-                                        align="stretch",
-                                        children=[
-                                            ui.Text("Authentication Method", variant="label"),
-                                            ui.Select(
-                                                param_name="auth_mode",
-                                                value="api_key",
-                                                options=[
-                                                    {"label": "API Key / Personal Access Token", "value": "api_key"},
-                                                    {"label": "OAuth 2.0 Bearer Token", "value": "oauth"},
-                                                    {"label": "Client Credentials (Service Account / Machine-to-Machine)", "value": "client_credentials"},
-                                                ]
-                                            ),
-                                        ]
-                                    ),
-                                    ui.Stack(
-                                        direction="v",
-                                        gap=1,
-                                        align="stretch",
-                                        children=[
-                                            ui.Text("Connection Label", variant="label"),
-                                            ui.Input(param_name="label", placeholder="e.g. Production Deel"),
-                                        ]
-                                    ),
-                                    ui.Stack(
-                                        direction="v",
-                                        gap=1,
-                                        align="stretch",
-                                        children=[
-                                            ui.Text("API Key / Access Token", variant="label"),
-                                            ui.Input(param_name="api_key", placeholder="Paste API Key, Bearer or Access Token"),
-                                        ]
-                                    ),
-                                ]
+                            ui.Text("API Bearer Token", variant="caption"),
+                            ui.Input(
+                                param_name="api_token",
+                                placeholder="Enter Deel API Token",
+                                value=""
+                            ),
+                            ui.Text("Connection Label (Optional)", variant="caption"),
+                            ui.Input(
+                                param_name="label",
+                                placeholder="e.g. Acme Global Deel",
+                                value=""
+                            ),
+                            ui.Text("Base URL (Optional)", variant="caption"),
+                            ui.Input(
+                                param_name="base_url",
+                                placeholder="https://api.letsdeel.com/rest/v2",
+                                value=""
                             )
                         ]
-                    ),
+                    )
                 ]
             ),
             _help_modal(),
-            ui.Spacer(),
-            _settings_button(),
+            ui.Divider(),
+            _settings_button()
         ]
     )

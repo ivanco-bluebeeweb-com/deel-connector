@@ -20,7 +20,7 @@ async def _get_client(ctx, cid: str = ""):
     chain_callable=True,
     data_model=ListEmployeeParams
 )
-async def list_employees(params: ListEmployeeParams, ctx) -> ActionResult[EmployeeList]:
+async def list_employees(ctx, params: ListEmployeeParams) -> ActionResult[EmployeeList]:
     """Execute list employees operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -35,7 +35,7 @@ async def list_employees(params: ListEmployeeParams, ctx) -> ActionResult[Employ
     chain_callable=True,
     data_model=GetEmployeeParams
 )
-async def get_employee(params: GetEmployeeParams, ctx) -> ActionResult[EmployeeRecord]:
+async def get_employee(ctx, params: GetEmployeeParams) -> ActionResult[EmployeeRecord]:
     """Execute get employee operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -49,7 +49,7 @@ async def get_employee(params: GetEmployeeParams, ctx) -> ActionResult[EmployeeR
     chain_callable=True,
     data_model=CreateEmployeeParams
 )
-async def create_employee(params: CreateEmployeeParams, ctx) -> ActionResult[EmployeeRecord]:
+async def create_employee(ctx, params: CreateEmployeeParams) -> ActionResult[EmployeeRecord]:
     """Execute create employee operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -63,7 +63,7 @@ async def create_employee(params: CreateEmployeeParams, ctx) -> ActionResult[Emp
     chain_callable=True,
     data_model=UpdateEmployeeParams
 )
-async def update_employee(params: UpdateEmployeeParams, ctx) -> ActionResult[EmployeeRecord]:
+async def update_employee(ctx, params: UpdateEmployeeParams) -> ActionResult[EmployeeRecord]:
     """Execute update employee operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -77,7 +77,7 @@ async def update_employee(params: UpdateEmployeeParams, ctx) -> ActionResult[Emp
     chain_callable=True,
     data_model=DeleteEmployeeParams
 )
-async def delete_employee(params: DeleteEmployeeParams, ctx) -> ActionResult[DeleteResult]:
+async def delete_employee(ctx, params: DeleteEmployeeParams) -> ActionResult[DeleteResult]:
     """Execute delete employee operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -91,7 +91,7 @@ async def delete_employee(params: DeleteEmployeeParams, ctx) -> ActionResult[Del
     chain_callable=True,
     data_model=ListPayrollRunParams
 )
-async def list_payroll_runs(params: ListPayrollRunParams, ctx) -> ActionResult[PayrollRunList]:
+async def list_payroll_runs(ctx, params: ListPayrollRunParams) -> ActionResult[PayrollRunList]:
     """Execute list payroll runs operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -106,7 +106,7 @@ async def list_payroll_runs(params: ListPayrollRunParams, ctx) -> ActionResult[P
     chain_callable=True,
     data_model=GetPayrollRunParams
 )
-async def get_payroll_run(params: GetPayrollRunParams, ctx) -> ActionResult[PayrollRunRecord]:
+async def get_payroll_run(ctx, params: GetPayrollRunParams) -> ActionResult[PayrollRunRecord]:
     """Execute get payroll run operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -120,7 +120,7 @@ async def get_payroll_run(params: GetPayrollRunParams, ctx) -> ActionResult[Payr
     chain_callable=True,
     data_model=CreatePayrollRunParams
 )
-async def create_payroll_run(params: CreatePayrollRunParams, ctx) -> ActionResult[PayrollRunRecord]:
+async def create_payroll_run(ctx, params: CreatePayrollRunParams) -> ActionResult[PayrollRunRecord]:
     """Execute create payroll run operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -134,7 +134,7 @@ async def create_payroll_run(params: CreatePayrollRunParams, ctx) -> ActionResul
     chain_callable=True,
     data_model=UpdatePayrollRunParams
 )
-async def update_payroll_run(params: UpdatePayrollRunParams, ctx) -> ActionResult[PayrollRunRecord]:
+async def update_payroll_run(ctx, params: UpdatePayrollRunParams) -> ActionResult[PayrollRunRecord]:
     """Execute update payroll run operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -148,7 +148,7 @@ async def update_payroll_run(params: UpdatePayrollRunParams, ctx) -> ActionResul
     chain_callable=True,
     data_model=DeletePayrollRunParams
 )
-async def delete_payroll_run(params: DeletePayrollRunParams, ctx) -> ActionResult[DeleteResult]:
+async def delete_payroll_run(ctx, params: DeletePayrollRunParams) -> ActionResult[DeleteResult]:
     """Execute delete payroll run operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -162,7 +162,7 @@ async def delete_payroll_run(params: DeletePayrollRunParams, ctx) -> ActionResul
     chain_callable=True,
     data_model=ListDepartmentParams
 )
-async def list_departments(params: ListDepartmentParams, ctx) -> ActionResult[DepartmentList]:
+async def list_departments(ctx, params: ListDepartmentParams) -> ActionResult[DepartmentList]:
     """Execute list departments operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -177,7 +177,7 @@ async def list_departments(params: ListDepartmentParams, ctx) -> ActionResult[De
     chain_callable=True,
     data_model=GetDepartmentParams
 )
-async def get_department(params: GetDepartmentParams, ctx) -> ActionResult[DepartmentRecord]:
+async def get_department(ctx, params: GetDepartmentParams) -> ActionResult[DepartmentRecord]:
     """Execute get department operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -191,7 +191,7 @@ async def get_department(params: GetDepartmentParams, ctx) -> ActionResult[Depar
     chain_callable=True,
     data_model=CreateDepartmentParams
 )
-async def create_department(params: CreateDepartmentParams, ctx) -> ActionResult[DepartmentRecord]:
+async def create_department(ctx, params: CreateDepartmentParams) -> ActionResult[DepartmentRecord]:
     """Execute create department operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -205,7 +205,7 @@ async def create_department(params: CreateDepartmentParams, ctx) -> ActionResult
     chain_callable=True,
     data_model=UpdateDepartmentParams
 )
-async def update_department(params: UpdateDepartmentParams, ctx) -> ActionResult[DepartmentRecord]:
+async def update_department(ctx, params: UpdateDepartmentParams) -> ActionResult[DepartmentRecord]:
     """Execute update department operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -219,7 +219,7 @@ async def update_department(params: UpdateDepartmentParams, ctx) -> ActionResult
     chain_callable=True,
     data_model=DeleteDepartmentParams
 )
-async def delete_department(params: DeleteDepartmentParams, ctx) -> ActionResult[DeleteResult]:
+async def delete_department(ctx, params: DeleteDepartmentParams) -> ActionResult[DeleteResult]:
     """Execute delete department operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -233,7 +233,7 @@ async def delete_department(params: DeleteDepartmentParams, ctx) -> ActionResult
     chain_callable=True,
     data_model=ListTimeOffRequestParams
 )
-async def list_time_off_requests(params: ListTimeOffRequestParams, ctx) -> ActionResult[TimeOffRequestList]:
+async def list_time_off_requests(ctx, params: ListTimeOffRequestParams) -> ActionResult[TimeOffRequestList]:
     """Execute list time off requests operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -248,7 +248,7 @@ async def list_time_off_requests(params: ListTimeOffRequestParams, ctx) -> Actio
     chain_callable=True,
     data_model=GetTimeOffRequestParams
 )
-async def get_time_off_request(params: GetTimeOffRequestParams, ctx) -> ActionResult[TimeOffRequestRecord]:
+async def get_time_off_request(ctx, params: GetTimeOffRequestParams) -> ActionResult[TimeOffRequestRecord]:
     """Execute get time off request operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -262,7 +262,7 @@ async def get_time_off_request(params: GetTimeOffRequestParams, ctx) -> ActionRe
     chain_callable=True,
     data_model=CreateTimeOffRequestParams
 )
-async def create_time_off_request(params: CreateTimeOffRequestParams, ctx) -> ActionResult[TimeOffRequestRecord]:
+async def create_time_off_request(ctx, params: CreateTimeOffRequestParams) -> ActionResult[TimeOffRequestRecord]:
     """Execute create time off request operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -276,7 +276,7 @@ async def create_time_off_request(params: CreateTimeOffRequestParams, ctx) -> Ac
     chain_callable=True,
     data_model=UpdateTimeOffRequestParams
 )
-async def update_time_off_request(params: UpdateTimeOffRequestParams, ctx) -> ActionResult[TimeOffRequestRecord]:
+async def update_time_off_request(ctx, params: UpdateTimeOffRequestParams) -> ActionResult[TimeOffRequestRecord]:
     """Execute update time off request operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -290,7 +290,7 @@ async def update_time_off_request(params: UpdateTimeOffRequestParams, ctx) -> Ac
     chain_callable=True,
     data_model=DeleteTimeOffRequestParams
 )
-async def delete_time_off_request(params: DeleteTimeOffRequestParams, ctx) -> ActionResult[DeleteResult]:
+async def delete_time_off_request(ctx, params: DeleteTimeOffRequestParams) -> ActionResult[DeleteResult]:
     """Execute delete time off request operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -304,7 +304,7 @@ async def delete_time_off_request(params: DeleteTimeOffRequestParams, ctx) -> Ac
     chain_callable=True,
     data_model=ListBenefitPlanParams
 )
-async def list_benefit_plans(params: ListBenefitPlanParams, ctx) -> ActionResult[BenefitPlanList]:
+async def list_benefit_plans(ctx, params: ListBenefitPlanParams) -> ActionResult[BenefitPlanList]:
     """Execute list benefit plans operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -319,7 +319,7 @@ async def list_benefit_plans(params: ListBenefitPlanParams, ctx) -> ActionResult
     chain_callable=True,
     data_model=GetBenefitPlanParams
 )
-async def get_benefit_plan(params: GetBenefitPlanParams, ctx) -> ActionResult[BenefitPlanRecord]:
+async def get_benefit_plan(ctx, params: GetBenefitPlanParams) -> ActionResult[BenefitPlanRecord]:
     """Execute get benefit plan operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -333,7 +333,7 @@ async def get_benefit_plan(params: GetBenefitPlanParams, ctx) -> ActionResult[Be
     chain_callable=True,
     data_model=CreateBenefitPlanParams
 )
-async def create_benefit_plan(params: CreateBenefitPlanParams, ctx) -> ActionResult[BenefitPlanRecord]:
+async def create_benefit_plan(ctx, params: CreateBenefitPlanParams) -> ActionResult[BenefitPlanRecord]:
     """Execute create benefit plan operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -347,7 +347,7 @@ async def create_benefit_plan(params: CreateBenefitPlanParams, ctx) -> ActionRes
     chain_callable=True,
     data_model=UpdateBenefitPlanParams
 )
-async def update_benefit_plan(params: UpdateBenefitPlanParams, ctx) -> ActionResult[BenefitPlanRecord]:
+async def update_benefit_plan(ctx, params: UpdateBenefitPlanParams) -> ActionResult[BenefitPlanRecord]:
     """Execute update benefit plan operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -361,7 +361,7 @@ async def update_benefit_plan(params: UpdateBenefitPlanParams, ctx) -> ActionRes
     chain_callable=True,
     data_model=DeleteBenefitPlanParams
 )
-async def delete_benefit_plan(params: DeleteBenefitPlanParams, ctx) -> ActionResult[DeleteResult]:
+async def delete_benefit_plan(ctx, params: DeleteBenefitPlanParams) -> ActionResult[DeleteResult]:
     """Execute delete benefit plan operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -375,7 +375,7 @@ async def delete_benefit_plan(params: DeleteBenefitPlanParams, ctx) -> ActionRes
     chain_callable=True,
     data_model=ListDirectDepositParams
 )
-async def list_direct_deposits(params: ListDirectDepositParams, ctx) -> ActionResult[DirectDepositList]:
+async def list_direct_deposits(ctx, params: ListDirectDepositParams) -> ActionResult[DirectDepositList]:
     """Execute list direct deposits operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -390,7 +390,7 @@ async def list_direct_deposits(params: ListDirectDepositParams, ctx) -> ActionRe
     chain_callable=True,
     data_model=GetDirectDepositParams
 )
-async def get_direct_deposit(params: GetDirectDepositParams, ctx) -> ActionResult[DirectDepositRecord]:
+async def get_direct_deposit(ctx, params: GetDirectDepositParams) -> ActionResult[DirectDepositRecord]:
     """Execute get direct deposit operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -404,7 +404,7 @@ async def get_direct_deposit(params: GetDirectDepositParams, ctx) -> ActionResul
     chain_callable=True,
     data_model=CreateDirectDepositParams
 )
-async def create_direct_deposit(params: CreateDirectDepositParams, ctx) -> ActionResult[DirectDepositRecord]:
+async def create_direct_deposit(ctx, params: CreateDirectDepositParams) -> ActionResult[DirectDepositRecord]:
     """Execute create direct deposit operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -418,7 +418,7 @@ async def create_direct_deposit(params: CreateDirectDepositParams, ctx) -> Actio
     chain_callable=True,
     data_model=UpdateDirectDepositParams
 )
-async def update_direct_deposit(params: UpdateDirectDepositParams, ctx) -> ActionResult[DirectDepositRecord]:
+async def update_direct_deposit(ctx, params: UpdateDirectDepositParams) -> ActionResult[DirectDepositRecord]:
     """Execute update direct deposit operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -432,7 +432,7 @@ async def update_direct_deposit(params: UpdateDirectDepositParams, ctx) -> Actio
     chain_callable=True,
     data_model=DeleteDirectDepositParams
 )
-async def delete_direct_deposit(params: DeleteDirectDepositParams, ctx) -> ActionResult[DeleteResult]:
+async def delete_direct_deposit(ctx, params: DeleteDirectDepositParams) -> ActionResult[DeleteResult]:
     """Execute delete direct deposit operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -446,7 +446,7 @@ async def delete_direct_deposit(params: DeleteDirectDepositParams, ctx) -> Actio
     chain_callable=True,
     data_model=ConnectionIdParams
 )
-async def audit_payroll_compliance(params: ConnectionIdParams, ctx) -> ActionResult[AuditPayrollComplianceResult]:
+async def audit_payroll_compliance(ctx, params: ConnectionIdParams) -> ActionResult[AuditPayrollComplianceResult]:
     """Execute audit payroll compliance operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
@@ -464,7 +464,7 @@ async def audit_payroll_compliance(params: ConnectionIdParams, ctx) -> ActionRes
     chain_callable=True,
     data_model=ConnectionIdParams
 )
-async def get_headcount_summary(params: ConnectionIdParams, ctx) -> ActionResult[GetHeadcountSummaryResult]:
+async def get_headcount_summary(ctx, params: ConnectionIdParams) -> ActionResult[GetHeadcountSummaryResult]:
     """Execute get headcount summary operation."""
     client, err = await _get_client(ctx, params.connection_id)
     if err: return err
