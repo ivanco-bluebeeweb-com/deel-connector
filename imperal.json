@@ -2190,7 +2190,8 @@
     {
       "name": "deel_connections",
       "description": "Stored encrypted connections and credentials for deel-connector",
-      "required": false
+      "required": false,
+      "write_mode": "both"
     }
   ]
 }
