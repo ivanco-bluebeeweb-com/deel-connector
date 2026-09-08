@@ -75,8 +75,8 @@ async def connect_deel(ctx, params: ConnectParams) -> ActionResult[ConnectionRec
     conns.append(rec)
     await _save_connections(ctx, conns)
 
-    return ActionResult(
-        data=ConnectionRecord(
+    return ActionResult.success(
+        ConnectionRecord(
             id=rec["id"],
             label=rec["label"],
             masked_key=rec["masked_key"],
@@ -106,8 +106,8 @@ async def list_connections(ctx, params: NoParams) -> ActionResult[ConnectionList
         )
         for c in conns
     ]
-    return ActionResult(
-        data=ConnectionList(connections=records, total=len(records)),
+    return ActionResult.success(
+        ConnectionList(connections=records, total=len(records)),
         summary=f"Found {len(records)} connected Deel account(s)."
     )
 
@@ -137,8 +137,8 @@ async def disconnect_deel(ctx, params: ConnectionIdParams) -> ActionResult[Delet
         conns[0]["is_active"] = True
     await _save_connections(ctx, conns)
 
-    return ActionResult(
-        data=DeleteResult(
+    return ActionResult.success(
+        DeleteResult(
             id=target["id"],
             deleted=True,
             message=f"Disconnected Deel connection {target.get('label', target['id'])}."
